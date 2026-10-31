@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Verona · 15 novembre</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,500&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--sea:#2a9d8f;--deep:#17495a;--sky:#bde3f5;--mint:#c9efe1;--foam:#f2fbf8;--sun:#ffc971;--coral:#ff8a7a;--r:22px}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:17px/1.6 Nunito,system-ui,sans-serif;color:var(--deep);background:linear-gradient(180deg,#e3f6fb,#e6f8ef 40%,#dff2f7 100%);overflow-x:hidden}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.1}
+.lay{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+#back{z-index:0}#front{z-index:200;opacity:.5}
+.vh{position:absolute;left:0;top:0;will-change:transform;filter:drop-shadow(0 4px 6px #17495a33)}
+.vh svg{width:74px;display:block}
+.vh.tr{font-size:46px;line-height:1}.vh.bl{font-size:44px;line-height:1}
+.dot{position:absolute;width:14px;height:14px;border-radius:50%;background:radial-gradient(#fff,#fff0 70%);animation:fade 1.5s forwards}
+@keyframes fade{to{opacity:0;transform:scale(2.4)}}
+/* intro */
+#intro{position:fixed;inset:0;z-index:100;display:grid;place-items:center;text-align:center;padding:24px;background:linear-gradient(170deg,#8fd3e8 0%,#b9ecdc 55%,#f6f3c9 100%);transition:transform 1s cubic-bezier(.7,0,.2,1),opacity .8s;overflow:hidden}
+#intro.go{transform:translateY(-105%);opacity:.6}
+.cl{position:absolute;background:#fff;border-radius:60px;opacity:.75;animation:drift linear infinite}
+.cl:before,.cl:after{content:"";position:absolute;background:#fff;border-radius:50%}
+.cl:before{width:50%;height:160%;left:15%;top:-70%}.cl:after{width:36%;height:130%;right:14%;top:-45%}
+@keyframes drift{from{transform:translateX(-30vw)}to{transform:translateX(130vw)}}
+.sun{position:absolute;right:10%;top:9%;width:110px;height:110px;border-radius:50%;background:radial-gradient(var(--sun),#ffe39a);box-shadow:0 0 0 22px #ffe39a55,0 0 0 50px #ffe39a30;animation:pulse 5s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.08)}}
+.hills{position:absolute;left:0;right:0;bottom:0;height:34vh}
+.ib{position:relative}
+.ib small{display:block;font-weight:800;letter-spacing:.04em;font-size:clamp(15px,2.4vw,20px);margin-bottom:6px}
+.big{font:800 clamp(64px,19vw,210px)/.95 Fraunces,serif;color:#fff;text-shadow:0 6px 0 var(--sea),0 18px 40px #17495a55;display:flex;justify-content:center}
+.big span{display:inline-block;transform:translateY(120%) rotate(8deg);opacity:0;animation:rise .9s cubic-bezier(.2,1.4,.4,1) forwards}
+@keyframes rise{to{transform:none;opacity:1}}
+.ib p{font-size:clamp(17px,2.6vw,24px);margin:14px 0 30px;font-weight:600}
+.btn{border:0;cursor:pointer;font:800 20px Nunito,sans-serif;color:#fff;padding:16px 38px;border-radius:99px;background:linear-gradient(135deg,var(--sea),#3ab7c9);box-shadow:0 8px 0 #1d7a70,0 18px 30px #17495a44;transition:.15s}
+.btn:hover{transform:translateY(-3px) scale(1.04)}.btn:active{transform:translateY(5px);box-shadow:0 3px 0 #1d7a70}
+.btn{animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{translate:0 -6px}}
+/* main */
+main{position:relative;z-index:1;display:none}
+main.on{display:block}
+.hero{min-height:88vh;display:grid;place-items:center;text-align:center;padding:60px 20px 30px}
+.hero h1{font-size:clamp(38px,7vw,78px);color:var(--deep)}
+.amp{cursor:pointer;display:inline-block;color:var(--coral);font-style:italic;transition:.2s}
+.amp:hover{transform:rotate(-12deg) scale(1.25)}
+.hero p.l{max-width:640px;margin:18px auto 26px;font-size:19px}
+.cd{display:inline-flex;gap:14px;align-items:center;background:#fffc;border-radius:99px;padding:12px 26px;font-weight:800;box-shadow:0 10px 30px #2a9d8f30}
+.cd b{font:800 34px Fraunces,serif;color:var(--sea)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:28px}
+.chips span{background:var(--mint);padding:8px 16px;border-radius:99px;font-weight:700;font-size:15px;animation:bob 4s ease-in-out infinite}
+.chips span:nth-child(2n){animation-delay:-1s;background:var(--sky)}.chips span:nth-child(3n){animation-delay:-2s;background:#fff1c9}
+section{max-width:1000px;margin:0 auto;padding:50px 20px}
+h2{font-size:clamp(30px,5vw,50px);text-align:center;margin-bottom:8px}
+.sub{text-align:center;opacity:.8;margin-bottom:34px}
+.tl{position:relative}
+.tl:before{content:"";position:absolute;left:28px;top:0;bottom:0;width:6px;border-radius:9px;background:repeating-linear-gradient(180deg,var(--sea) 0 14px,transparent 14px 26px);opacity:.5}
+.st{position:relative;margin:0 0 34px 0;padding-left:74px}
+.pin{position:absolute;left:0;top:6px;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;font-size:30px;background:#fff;border:5px solid var(--sea);box-shadow:0 6px 18px #2a9d8f55}
+.card{background:#ffffffe8;border-radius:var(--r);padding:24px;box-shadow:0 14px 40px #17495a1c;border-top:6px solid var(--c,var(--sea));transition:.3s}
+@media(hover:hover){.card:hover{transform:translateY(-5px) rotate(-.4deg)}}
+.time{display:inline-block;background:var(--c,var(--sea));color:#fff;font-weight:800;padding:3px 14px;border-radius:99px;font-size:14px}
+.card h3{font-size:28px;margin:10px 0 6px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}
+.meta i{font-style:normal;background:var(--foam);border:1px solid #2a9d8f33;border-radius:12px;padding:3px 12px;font-size:14px;font-weight:600}
+.card ul{margin:10px 0 10px 20px}
+.tip{background:linear-gradient(90deg,#fff1c9,#fff9e6);border-radius:14px;padding:10px 14px;font-weight:600;margin:12px 0}
+.ph{display:grid;place-items:center;position:relative;min-height:170px;margin-top:14px;border:3px dashed var(--sea);border-radius:18px;background:repeating-linear-gradient(45deg,#e8f8f3,#e8f8f3 12px,#f4fcfa 12px 24px);cursor:pointer;overflow:hidden;font-weight:800;color:var(--sea);transition:.2s}
+.ph:hover{transform:scale(1.015);border-color:var(--coral);color:var(--coral)}
+.ph input{display:none}.ph img{display:none;width:100%;max-height:420px;object-fit:cover}
+.ph.has{border-style:solid;min-height:0}.ph.has img{display:block}.ph.has span{display:none}
+.ph span{font-size:18px;text-align:center;padding:10px}
+.lunch{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.lunch .card{border-top-color:var(--coral)}
+.lunch h3{font-size:22px}
+.star{color:#f5a623;font-weight:800}
+.big-btn{display:block;width:fit-content;margin:20px auto;text-decoration:none}
+table{width:100%;border-collapse:collapse;background:#fffe;border-radius:var(--r);overflow:hidden;box-shadow:0 14px 40px #17495a1c}
+th{background:var(--sea);color:#fff;text-align:left}
+td,th{padding:10px 16px}tr:nth-child(even) td{background:var(--foam)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:26px 0}
+.stats div{background:#fff;border-radius:18px;padding:16px;text-align:center;box-shadow:0 8px 24px #17495a14}
+.stats b{display:block;font:800 34px Fraunces,serif;color:var(--sea)}
+.top5 li{list-style:none;display:flex;gap:14px;align-items:center;background:#fff;margin-bottom:10px;padding:12px 18px;border-radius:16px;box-shadow:0 6px 18px #17495a12}
+.top5 em{font-size:30px;font-style:normal}
+.end{text-align:center;padding:60px 20px 90px}
+.end h2{font-size:clamp(34px,6vw,64px)}
+.rv{opacity:0;transform:translateY(28px) scale(.97);transition:1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+#toast{position:fixed;left:50%;bottom:12%;transform:translate(-50%,40px) scale(.7);opacity:0;z-index:300;background:#fff;color:#e03a3e;font:800 clamp(22px,5vw,36px) Fraunces,serif;padding:16px 32px;border-radius:99px;box-shadow:0 14px 50px #e03a3e55;transition:.4s cubic-bezier(.2,1.6,.4,1);pointer-events:none;text-align:center}
+#toast.s{opacity:1;transform:translate(-50%,0) scale(1)}
+.hrt{position:fixed;z-index:299;pointer-events:none;font-size:26px;animation:up 1.6s ease-out forwards}
+@keyframes up{to{transform:translate(var(--x),-240px) scale(1.6) rotate(var(--rot));opacity:0}}
+@media(max-width:600px){.st{padding-left:60px}.pin{width:50px;height:50px;font-size:24px}.tl:before{left:22px}.card{padding:18px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.big span{opacity:1;transform:none}.rv{opacity:1;transform:none}}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px}
+
+body{background-size:100% 300%;animation:bgs 18s ease-in-out infinite alternate}
+@keyframes bgs{to{background-position:0 100%}}
+body.m .hero{position:relative;min-height:88vh;min-height:88svh}
+.fls b{position:absolute;font-size:34px;animation:fl 7s ease-in-out infinite;opacity:.85}
+@keyframes fl{50%{transform:translateY(-22px) rotate(14deg)}}
+.tl:before,.tl:after{z-index:0}
+.st{z-index:2}
+.tl:after{content:"";position:absolute;left:28px;top:0;width:6px;border-radius:9px;background:linear-gradient(var(--sea),#3ab7c9);height:calc(var(--p,0)*100%)}
+.walk{position:absolute;left:31px;top:calc(var(--p,0)*100%);transform:translate(-50%,-50%);font-size:28px;z-index:1;filter:drop-shadow(0 3px 3px #0003);animation:wk .45s ease-in-out infinite alternate}
+@keyframes wk{to{rotate:14deg}}
+.st.rv{transform:translateX(-36px) scale(.96)}
+.st.rv:nth-child(even){transform:translateX(36px) scale(.96)}
+.st.rv.in{transform:none}
+.st.in .pin{animation:pop .8s .15s cubic-bezier(.2,1.8,.4,1) both}
+@keyframes pop{from{transform:scale(0)}}
+.pin{cursor:pointer}
+.pin:after{content:"";position:absolute;inset:-5px;border-radius:50%;border:3px solid #2a9d8f77;opacity:0;animation:ping 2.6s infinite}
+@keyframes ping{0%{transform:scale(.9);opacity:.8}100%{transform:scale(1.5);opacity:0}}
+.cf{position:fixed;z-index:299;width:9px;height:13px;border-radius:2px;pointer-events:none;animation:cf 1.8s cubic-bezier(.2,.8,.3,1) forwards}
+@keyframes cf{to{transform:translate(var(--x),calc(var(--y) + 220px)) rotate(var(--r));opacity:0}}
+#toast{bottom:calc(12% + env(safe-area-inset-bottom,0px));max-width:90vw}
+.amp{padding:0 8px}
+html,body{-webkit-tap-highlight-color:transparent}
+@media(max-width:600px){.vh svg{width:54px}.vh.tr{font-size:34px}.vh.bl{font-size:32px}section{padding:36px 14px}.cd{padding:10px 18px}.cd b{font-size:28px}td,th{padding:8px 10px;font-size:15px}.meta i{font-size:13px}.walk{left:25px;font-size:24px}.tl:after{left:22px}.card h3{font-size:24px}.fls b{font-size:26px}.hero{padding-top:40px}}
+@media(prefers-reduced-motion:reduce){.walk,.fls b,.pin:after{animation:none!important}.st.rv{transform:none}}
+
+html{scrollbar-width:none}html::-webkit-scrollbar{display:none}
+#sb{position:fixed;right:3px;top:calc(16px + env(safe-area-inset-top,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));width:20px;z-index:250;display:none;touch-action:none;cursor:pointer}
+body.m #sb{display:block}
+#sb:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:6px;margin-left:-3px;border-radius:9px;background:linear-gradient(180deg,#ffffffb0,#c9efe1b0);box-shadow:inset 0 0 0 1px #2a9d8f33,0 4px 14px #2a9d8f22}
+#sb i{position:absolute;left:50%;top:0;width:10px;margin-left:-5px;height:60px;border-radius:9px;background:linear-gradient(180deg,#3ab7c9,var(--sea));box-shadow:0 0 0 2px #fff,0 6px 16px #2a9d8f77;transition:width .2s,margin .2s}
+#sb.d i,#sb:hover i{width:14px;margin-left:-7px}
+.back{position:fixed;z-index:250;left:12px;top:calc(12px + env(safe-area-inset-top,0px));border:0;cursor:pointer;font:800 15px Nunito,sans-serif;color:var(--deep);padding:9px 18px 9px 12px;border-radius:99px;background:#ffffffd9;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 6px 18px #17495a26,inset 0 0 0 2px #2a9d8f44;transition:.2s}
+.back span{display:inline-block;transition:.2s;color:var(--sea);font-size:18px}
+.back:hover span{transform:translateX(-4px)}.back:active{transform:scale(.94)}
+</style>
+</head>
+<body>
+<div class="lay" id="back"></div><div class="lay" id="front"></div><div id="sb" aria-hidden="true"><i></i></div>
+
+<div id="intro">
+  <div class="sun"></div>
+  <div class="cl" style="width:200px;height:50px;top:14%;animation-duration:60s"></div>
+  <div class="cl" style="width:140px;height:36px;top:30%;animation-duration:45s;animation-delay:-20s"></div>
+  <div class="cl" style="width:240px;height:56px;top:55%;animation-duration:75s;animation-delay:-40s"></div>
+  <svg class="hills" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="M0 120 Q150 40 300 110 T600 90 T1000 100 V200H0Z" fill="#8fd9c0"/><path d="M0 160 Q200 90 420 150 T800 130 T1000 150 V200H0Z" fill="#2a9d8f"/></svg>
+  <div class="ib">
+    <small>🚆 15 novembre · un regalo, un giorno solo per noi</small>
+    <div class="big" id="bt"></div>
+    <p>Cinque ore, un'intera città da scoprire insieme</p>
+    <button class="btn" id="open">Apri l'itinerario ✈️</button>
+  </div>
+</div>
+
+<main id="main"><button class="back" id="back2" aria-label="Torna alla schermata principale"><span>←</span> Indietro</button>
+  <div class="hero"><div class="fls" aria-hidden="true"><b style="left:6%;top:14%">🌿</b><b style="left:84%;top:10%;animation-delay:-2s">☁️</b><b style="left:12%;top:70%;animation-delay:-4s">✨</b><b style="left:88%;top:66%;animation-delay:-1s">🍃</b><b style="left:48%;top:4%;animation-delay:-3s">🕊️</b><b style="left:70%;top:86%;animation-delay:-5s">🌿</b><b style="left:30%;top:90%;animation-delay:-2.5s">✨</b></div><div class="rv in">
+    <h1>Giulia <span class="amp" id="egg" role="button" tabindex="0" aria-label="Sorpresa">&amp;</span> Mirko<br>a Verona</h1>
+    <p class="l">Grazie per questo bellissimo regalo: domenica, solo io e te, tante cose da vedere e ricordi da segnare. Questo è il nostro programma, tappa dopo tappa.</p>
+    <div class="cd">Mancano <b id="days">–</b> giorni</div>
+    <div class="chips"><span>👥 2 persone</span><span>🚉 Arrivo 11:30</span><span>🚶 Tutto a piedi</span><span>🎟️ Attrazioni gratuite</span><span>🍕 Pranzo a scelta</span><span>🌳 Pausa nel verde</span><span>🚆 Partenza 16:30</span></div>
+  </div></div>
+
+  <section><h2 class="rv">Il percorso</h2><p class="sub rv">Dalle 11:30 alle 16:30. Tocca uno spazio foto per aggiungere i vostri scatti.</p>
+    <div class="tl" id="tl"></div>
+    <a class="btn big-btn" id="map" target="_blank" rel="noopener">🗺️ Apri il percorso su Google Maps</a>
+  </section>
+
+  <section><h2 class="rv">Pausa pranzo 🍕</h2><p class="sub rv">13:45 – 14:25 · cinque posti vicini al percorso, zona Ponte Pietra</p>
+    <div class="lunch" id="lunch"></div>
+    <p class="sub rv" style="margin-top:22px">Consiglio: Focacceria Genovese o Pizza Cortes, vicine e veloci. Gli orari possono cambiare: meglio controllarli prima di partire.</p>
+  </section>
+
+  <section><h2 class="rv">Riepilogo</h2><p class="sub rv">Tutto in una tabella da consultare durante la giornata</p>
+    <div style="overflow-x:auto" class="rv"><table><thead><tr><th>Orario</th><th>Luogo</th><th>A piedi</th></tr></thead><tbody id="tb"></tbody></table></div>
+    <div class="stats rv"><div><b data-n="8">0</b>km circa</div><div><b data-n="9">0</b>tappe</div><div><b data-n="2">0</b>ore di cammino</div></div>
+    <p class="sub rv">Il programma è pieno: l'orario più importante è quello dopo pranzo, perché alle 16:10 bisogna essere in stazione.</p>
+  </section>
+
+
+  <div class="end rv"><h2>Buon viaggio! 🌿</h2><p style="font-size:19px;margin-top:10px">Verona merita decisamente queste cinque ore.<br>Grazie per il regalo più bello.</p></div>
+</main>
+<div id="toast"></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const S=[
+{t:"11:30 – 11:50",n:"Dalla stazione a Piazza Bra",e:"🚉",c:"#2a9d8f",r:"Porta Nuova → Corso Porta Nuova → Piazza Bra",d:"1,4 km · 20 min a piedi",p:"Appena usciti dalla stazione, Corso Porta Nuova sempre dritto verso il centro. Passerete sotto i Portoni della Bra e arriverete davanti all'Arena.",s:["Arena di Verona, anfiteatro romano","Palazzo della Gran Guardia","Palazzo Barbieri","Il Liston, il marciapiede della piazza"],f:"Foto davanti all'Arena, con l'intero anfiteatro nell'inquadratura.",k:"Visita: 15 min"},
+{t:"12:05 – 12:20",n:"Via Mazzini e Porta Borsari",e:"🛍️",c:"#3ab7c9",r:"Piazza Bra → Via Mazzini → Porta Borsari",d:"900 m · 13 min a piedi",p:"Via Mazzini è la grande strada pedonale dello shopping, tra negozi e palazzi storici. In fondo, Porta Borsari: un'antica porta romana in pietra bianca.",s:["La facciata monumentale","Le finestre decorate","I dettagli romani"],f:"Davanti alla facciata, con tutta la porta inquadrata.",k:"Gratuito · 10 min"},
+{t:"12:30 – 12:55",n:"Piazza delle Erbe, Piazza dei Signori e Arche Scaligere",e:"🏛️",c:"#5cb89a",r:"Porta Borsari → Erbe → Signori → Arche Scaligere",d:"650 m · 10 min a piedi",p:"La zona più caratteristica del centro, sull'area dell'antico foro romano. Tre scorci uno dietro l'altro.",s:["Erbe: Torre dei Lamberti, Palazzo Maffei, fontana di Madonna Verona","Signori: statua di Dante, Palazzo della Ragione, Loggia del Consiglio","Arche Scaligere: tombe gotiche della famiglia Scaligeri"],f:"Panoramica in Piazza delle Erbe con la Torre dei Lamberti, poi una foto davanti a Dante.",k:"Gratuito dall'esterno · 25 min"},
+{t:"12:55 – 13:10",n:"Casa di Giulietta",e:"❤️",c:"#ff8a7a",r:"Arche Scaligere → Casa di Giulietta",d:"400 m · 6 min a piedi",p:"Il famoso balcone di Romeo e Giulietta. Il legame con la Giulietta di Shakespeare è una tradizione turistica, non un fatto storico dimostrato, ma resta un posto bellissimo.",s:["Il balcone","La facciata","Il cortile e la statua di Giulietta, se accessibili"],f:"Davanti alla casa, con il balcone in alto.",k:"Gratuito dall'esterno · 10 min"},
+{t:"13:10 – 13:25",n:"Ponte Pietra",e:"🌉",c:"#3a8fc9",r:"Casa di Giulietta → Ponte Pietra",d:"750 m · 11 min a piedi",p:"Verso l'Adige, fino al ponte romano più antico di Verona. Uno degli scorci più belli della città.",s:["Il ponte romano","Il fiume Adige","Le case colorate lungo l'acqua","Il Teatro Romano sull'altra sponda"],f:"Dal ponte, con fiume e case sullo sfondo.",k:"5 min"},
+{t:"13:25 – 13:45",n:"Castel San Pietro",e:"🌄",c:"#f2a65a",r:"Ponte Pietra → scalinata → Castel San Pietro",d:"450 m · 10-15 min, salita compresa",p:"La tappa da non saltare. La terrazza panoramica esterna è gratuita e non serve entrare nell'edificio.",s:["Tutto il centro storico","Il fiume Adige","I tetti e le torri medievali","L'Arena in lontananza"],f:"Qui la foto panoramica di Verona: probabilmente il punto migliore della giornata.",k:"Gratuito · 20 min"},
+{t:"14:25 – 15:05",n:"Giardini Alessandro Canestrari",e:"🌳",c:"#4fb477",r:"Zona Ponte Pietra → Giardini Canestrari",d:"1,3 km · 18-20 min a piedi",p:"Finalmente un po' di tranquillità, vicino all'Adige e all'Arsenale. Qui non si visita niente: ci si riposa.",s:["Sedersi sulle panchine","Passeggiare nel verde","Qualche foto"],f:"Una foto nel verde oppure lungo il fiume.",k:"Gratuito · 40 min con lo spostamento. Non saltatela!"},
+{t:"15:05 – 15:45",n:"Castelvecchio e Ponte Scaligero",e:"🏰",c:"#c9714f",r:"Giardini → Castelvecchio",d:"650 m · 10 min a piedi",p:"Ultima grande attrazione: la fortezza medievale degli Scaligeri. Senza biglietto del museo si ammira l'esterno e si attraversa il ponte.",s:["Mura e torri medievali","Ponte Scaligero in mattoni rossi","Il panorama sull'Adige"],f:"Una davanti alla fortezza e una sul ponte, con le arcate.",k:"Gratuito · 30 min"},
+{t:"15:45 – 16:10",n:"Ritorno alla stazione",e:"🚆",c:"#2a9d8f",r:"Castelvecchio → Corso Castelvecchio → Corso Porta Nuova → stazione",d:"1,4 km · 20 min a piedi",p:"Arrivo previsto alle 16:10, con circa 20 minuti di margine prima del treno delle 16:30.",s:["Corso Castelvecchio","Corso Porta Nuova"],f:"L'ultima foto della giornata, prima di salire sul treno.",k:"Treno alle 16:30"}];
+const L=[["Focacceria Genovese","4,5","Via Ponte Pietra, 17a","Focacce genovesi, pizze farcite, prodotti da forno","€","Il miglior compromesso per un pranzo veloce"],["Pizza Cortes da Zia Amelia","4,8","Via Ponte Pietra, 11","Pizza al taglio, a portafoglio, calzoni","€","Se avete voglia di pizza"],["Salumeria Gironda","4,7","Via Ponte Pietra, 24","Salumi, formaggi, pane, taglieri. Terrazza panoramica sul fiume","","Per un pranzo più caratteristico"],["Scapin 1935 · Gastronomia","4,8","Via Santo Stefano, 12","Gastronomia artigianale, piatti pronti, specialità veronesi","","Per provare la cucina locale"],["Focacceria Ponte Pietra","4,8","Lungadige San Giorgio, 3","Focacce, pizza, specialità salate","","Da portare al parco"]];
+const R=[["11:30","Arrivo a Verona Porta Nuova","–"],["11:30-11:50","Piazza Bra e Arena","20 min"],["12:05-12:20","Via Mazzini e Porta Borsari","13 min"],["12:30-12:55","Piazza Erbe, Piazza Signori, Arche Scaligere","10 min"],["12:55-13:10","Casa di Giulietta","6 min"],["13:10-13:25","Ponte Pietra","11 min"],["13:25-13:45","Castel San Pietro","10-15 min"],["13:45-14:25","Pranzo","–"],["14:25-15:05","Giardini Alessandro Canestrari","18-20 min"],["15:05-15:45","Castelvecchio e Ponte Scaligero","10 min"],["15:45-16:10","Ritorno in stazione","20 min"],["16:10-16:30","Attesa del treno","–"]];
+const M=["Ti voglio bene","Ti voglio tanto bene","Ti voglio un bene dell'anima","Sei bellissima","Tiamo","Hai degli occhi stupendi (anche se a volte dico che non sono azzurri)","Grazie per il regalo","Mi manchi troppo","Non vedo l'ora che sia il 15","Quando sto con te sto da dio","Mi fai stare bene","Sei il mio regalo più bello","Non vedo l'ora di stare con te","Sei speciale, lo sai?","Mi rendi felicissimo","Sono felicissimo di poter stare con te","Ti penso sempre","Sei dolcissima","Grazie di esistere","Verona è bella, ma tu di più","Sei mia, muah", "Muah!!!"];
+// titolo
+"Verona".split("").forEach((c,i)=>{const s=document.createElement("span");s.textContent=c;s.style.animationDelay=(.2+i*.12)+"s";$("#bt").append(s)});
+// tappe
+$("#tl").innerHTML=S.map((x,i)=>`<div class="st rv"><div class="pin" style="border-color:${x.c}">${x.e}</div><div class="card" style="--c:${x.c}"><span class="time">${x.t}</span><h3>${x.n}</h3><div class="meta"><i>📍 ${x.r}</i><i>🚶 ${x.d}</i><i>💰 ${x.k}</i></div><p>${x.p}</p><ul>${x.s.map(a=>`<li>${a}</li>`).join("")}</ul><div class="tip">📸 ${x.f}</div><label class="ph" data-i="${i}" tabindex="0"><input type="file" accept="image/*"><span>📷 Tocca per aggiungere la vostra foto<br>${x.n}</span><img alt="Foto: ${x.n}"></label></div></div>`).join("");
+$("#lunch").innerHTML=L.map(l=>`<div class="card rv"><h3>${l[0]}</h3><div class="meta"><i class="star">★ ${l[1]}</i>${l[4]?`<i>💰 ${l[4]}</i>`:""}</div><p>📍 ${l[2]}</p><p>${l[3]}</p><p><b>${l[5]}</b></p></div>`).join("");
+$("#tb").innerHTML=R.map(r=>`<tr><td><b>${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("");
+const pts=["Stazione Verona Porta Nuova","Piazza Bra Verona","Porta Borsari Verona","Piazza delle Erbe Verona","Piazza dei Signori Verona","Arche Scaligere Verona","Casa di Giulietta Verona","Ponte Pietra Verona","Castel San Pietro Verona","Giardini Alessandro Canestrari Verona","Castelvecchio Verona","Stazione Verona Porta Nuova"];
+$("#map").href="https://www.google.com/maps/dir/"+pts.map(encodeURIComponent).join("/")+"/data=!4m2!4m1!3e2";
+// foto (salvate nel browser)
+document.querySelectorAll(".ph").forEach(l=>{const i=l.dataset.i,img=l.querySelector("img");
+ try{const v=localStorage.getItem("verona"+i);if(v){img.src=v;l.classList.add("has")}}catch(e){}
+ l.querySelector("input").onchange=e=>{const f=e.target.files[0];if(!f)return;const im=new Image();im.onload=()=>{const k=Math.min(1,900/im.width),c=document.createElement("canvas");c.width=im.width*k;c.height=im.height*k;c.getContext("2d").drawImage(im,0,0,c.width,c.height);const u=c.toDataURL("image/jpeg",.8);img.src=u;l.classList.add("has");try{localStorage.setItem("verona"+i,u)}catch(e){}};im.src=URL.createObjectURL(f)};
+ l.onkeydown=e=>{if(e.key=="Enter")l.querySelector("input").click()}});
+// countdown
+const dd=Math.max(0,Math.ceil((new Date("2026-11-15T11:30")-new Date())/864e5));$("#days").textContent=dd;
+// apertura
+$("#open").onclick=()=>{conf(innerWidth/2,innerHeight*.72,70);document.body.classList.add("m");$("#main").classList.add("on");$("#intro").classList.add("go");setTimeout(()=>{$("#intro").style.display="none";scrollTo(0,0);obs()},1000)};
+// reveal
+function obs(){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");if(e.target.classList.contains("end"))conf(innerWidth/2,innerHeight*.55,80);o.unobserve(e.target);e.target.querySelectorAll("[data-n]").forEach(c=>cnt(c))}if(e.target.dataset&&e.target.dataset.n)cnt(e.target)}),{threshold:.15});document.querySelectorAll(".rv").forEach(x=>o.observe(x))}
+function cnt(c){if(c.dataset.d)return;c.dataset.d=1;const n=+c.dataset.n;let k=0;const t=setInterval(()=>{c.textContent=++k;if(k>=n)clearInterval(t)},120);if(!n)c.textContent=0}
+// veicoli
+const PL='<svg viewBox="0 0 64 26"><path d="M2 13 L20 9 L38 2 L46 2 L39 10 L58 11 Q63 13 58 15 L39 16 L46 24 L38 24 L20 17 Z" fill="#fff" stroke="#2a9d8f" stroke-width="2" stroke-linejoin="round"/><circle cx="52" cy="12.5" r="2" fill="#3ab7c9"/></svg>';
+function fly(){
+ const k=Math.random(),type=k<.55?"pl":k<.8?"tr":"bl",lay=$(Math.random()<.5?"#back":"#front"),W=innerWidth,H=innerHeight,rtl=Math.random()<.5;
+ const el=document.createElement("div");el.className="vh "+type;
+ el.innerHTML=type=="pl"?PL:type=="tr"?"🚄":"🎈";
+ const dir=rtl?-1:1;el.firstElementChild&&(type=="pl"&&(el.firstElementChild.style.transform=`scaleX(${dir})`));if(type=="tr")el.style.transform="";
+ const y=type=="tr"?H*.9:H*(.08+Math.random()*.7),dur=type=="pl"?14000+Math.random()*6000:type=="tr"?11000:26000;
+ const x0=rtl?W+120:-140,x1=rtl?-140:W+120,my=type=="pl"?y+(Math.random()*160-80):type=="bl"?y-120:y;
+ el.style.transform=`translate(${x0}px,${y}px)`;lay.append(el);
+ const flip=type=="tr"&&dir==1?" scaleX(-1)":"";
+ const a=el.animate([{transform:`translate(${x0}px,${y}px)${flip}`},{transform:`translate(${(x0+x1)/2}px,${my}px)${flip}`},{transform:`translate(${x1}px,${y}px)${flip}`}],{duration:dur,easing:"linear"});
+ const iv=setInterval(()=>{const r=el.getBoundingClientRect(),d=document.createElement("i");d.className="dot";const cx=rtl?r.right-8:r.left+8;d.style.cssText=`left:${(type=="pl"?(rtl?r.right-6:r.left+6):r.left+r.width/2)-7}px;top:${r.top+r.height/2-7}px`;if(type=="tr"){d.style.left=(rtl?r.right:r.left)-7+"px"}lay.append(d);setTimeout(()=>d.remove(),1500)},50);
+ a.onfinish=()=>{clearInterval(iv);el.remove()};
+}
+if(!matchMedia("(prefers-reduced-motion:reduce)").matches){fly();const f=innerWidth<700?6500:9000;setInterval(fly,f);setTimeout(fly,3000);setTimeout(fly,innerWidth<700?7500:12000)}
+// easter egg
+let mi=0;
+function egg(e){if(navigator.vibrate)navigator.vibrate(25);const t=$("#toast");t.textContent=M[mi++%M.length]+" ❤️";t.classList.add("s");clearTimeout(egg.t);egg.t=setTimeout(()=>t.classList.remove("s"),2600);
+ const r=$("#egg").getBoundingClientRect();for(let i=0;i<10;i++){const h=document.createElement("div");h.className="hrt";h.textContent=["❤️","❤️","♥️","❤️","♥️"][i%5];h.style.left=r.left+r.width/2+"px";h.style.top=r.top+"px";h.style.setProperty("--x",(Math.random()*240-120)+"px");h.style.setProperty("--rot",(Math.random()*60-30)+"deg");document.body.append(h);setTimeout(()=>h.remove(),1700)}}
+$("#egg").onclick=egg;$("#egg").onkeydown=e=>{if(e.key=="Enter"||e.key==" ")egg()};
+
+function conf(x,y,n){const C=["#2a9d8f","#3ab7c9","#ffc971","#f2a65a","#8fd9c0","#3a8fc9"];for(let i=0;i<(n||40);i++){const d=document.createElement("i");d.className="cf";d.style.cssText=`left:${x}px;top:${y}px;background:${C[i%6]};--x:${Math.random()*360-180}px;--y:${Math.random()*300-200}px;--r:${Math.random()*720}deg`;document.body.append(d);setTimeout(()=>d.remove(),1900)}}
+$("#tl").insertAdjacentHTML("beforeend",'<div class="walk" aria-hidden="true">🚶</div>');
+document.querySelectorAll(".pin").forEach(p=>p.onclick=()=>{const r=p.getBoundingClientRect();conf(r.left+r.width/2,r.top+r.height/2,30)});
+let tk=0;function sc(){if(tk)return;tk=1;requestAnimationFrame(()=>{tk=0;const t=$("#tl").getBoundingClientRect();$("#tl").style.setProperty("--p",Math.max(0,Math.min(1,(innerHeight*.6-t.top)/t.height)))})}
+addEventListener("scroll",sc,{passive:true});addEventListener("resize",sc);
+
+const sb=$("#sb"),th=sb.firstElementChild;
+function sbu(){const H=document.documentElement,m=Math.max(1,H.scrollHeight-innerHeight),T=sb.clientHeight,h=Math.max(44,T*innerHeight/H.scrollHeight);th.style.height=h+"px";th.style.transform=`translateY(${Math.min(1,scrollY/m)*(T-h)}px)`}
+addEventListener("scroll",sbu,{passive:true});addEventListener("resize",sbu);
+function sbm(e){const r=sb.getBoundingClientRect(),h=th.offsetHeight,H=document.documentElement,m=H.scrollHeight-innerHeight,k=Math.max(0,Math.min(1,(e.clientY-r.top-h/2)/(r.height-h)));scrollTo({top:k*m,behavior:"instant"})}
+sb.onpointerdown=e=>{sb.setPointerCapture(e.pointerId);sb.classList.add("d");sbm(e);sb.onpointermove=sbm};
+sb.onpointerup=sb.onpointercancel=()=>{sb.classList.remove("d");sb.onpointermove=null};
+$("#back2").onclick=()=>{const it=$("#intro");it.style.display="grid";void it.offsetWidth;it.classList.remove("go");document.querySelectorAll("#bt span").forEach((s,i)=>{s.style.animation="none";void s.offsetWidth;s.style.animation="";s.style.animationDelay=(.2+i*.12)+"s"});setTimeout(()=>{$("#main").classList.remove("on");document.body.classList.remove("m");scrollTo({top:0,behavior:"instant"})},1000)};
+const _o=$("#open").onclick;$("#open").onclick=()=>{_o();setTimeout(sbu,1100)};
+</script>
+</body>
+</html>
